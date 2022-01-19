@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "643590199746",
+    "project_id": "artmartapp-a4514",
+    "storage_bucket": "artmartapp-a4514.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643590199746:android:9061cff7059c6ca4b89e5b",
+        "android_client_info": {
+          "package_name": "com.amjad.art_mart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643590199746-7urcii4npp61fhej60l8l9htt4brpifd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amjad.art_mart",
+            "certificate_hash": "31f60b5ccd15edecb068bc9e998afc4483c3996b"
+          }
+        },
+        {
+          "client_id": "643590199746-6lb3u3jn7pp53o1ui9on24r4ukkpsne1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUJDdf0hp7qXOSHlKWPoMNlqYwbHlVMH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643590199746-6lb3u3jn7pp53o1ui9on24r4ukkpsne1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
