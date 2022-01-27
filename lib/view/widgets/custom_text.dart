@@ -7,11 +7,12 @@ class CustomText extends StatelessWidget {
   final Alignment alignment;
 
   CustomText({
+    Key? key, 
     this.text = '',
     this.fontSize = 16.0,
     this.color = Colors.black,
     this.alignment = Alignment.topLeft
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

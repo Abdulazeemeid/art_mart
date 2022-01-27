@@ -70,6 +70,18 @@ class LoginScreen extends GetWidget<AuthController> {
                       CustomTextFormField(
                         hintText: 'abdo@gmail.com',
                         customTextVal: 'Enter Email',
+                        mykeypord: TextInputType.emailAddress,
+                        onSavedMethod: (val){
+                          controller.userEmail=val!;
+                        },
+                        onChangeMethod: (val){},
+                        validateMethod: (val){
+                          if(val==null){
+                            return 'erorr';
+                            }else{
+                              return null.toString();
+                              }
+                        },
                       ),
                       const SizedBox(
                         height: 15.0,
@@ -78,6 +90,13 @@ class LoginScreen extends GetWidget<AuthController> {
                         hintText: 'Please Enter 8 Digit',
                         customTextVal: 'Enter Password',
                         obscureText: true,
+                        onSavedMethod: (val){
+                          controller.uesrPassword=val!;
+                        },
+                        onChangeMethod: (val){},
+                        validateMethod: (val){
+                          if(val==null){return 'erorr';}else{return null.toString();}
+                        },
                       ),
                       const SizedBox(
                         height: 16.0,
@@ -90,8 +109,18 @@ class LoginScreen extends GetWidget<AuthController> {
                       const SizedBox(
                         height: 50.0,
                       ),
-                      const CustomButton(
+                      CustomButton(
                         text: 'Sign in',
+                        onpress: (){
+                          _formKey.currentState?.save();
+                          controller.emailAndPassSignInMethod();
+                          /*
+                          if(_formKey.currentState!.validate()){
+                            controller.emailAndPassSignInMethod();
+                          }else{debugPrint('llllllllllllllllllllllll');}
+                          */
+                        },
+                        
                       ),
                       const SizedBox(
                         height: 16.0,

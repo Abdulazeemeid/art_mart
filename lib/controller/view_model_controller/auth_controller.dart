@@ -1,12 +1,16 @@
+import 'package:art_mart/view/auth/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+
 
 class AuthController extends GetxController{
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FacebookLogin _facebookLogin = FacebookLogin();
+  late String userEmail,uesrPassword,userName;
   
   void googleSignInMethod()async{
 
@@ -36,7 +40,19 @@ class AuthController extends GetxController{
     }
 
   }
-
+  
+  void emailAndPassSignInMethod()async{
+    try{
+      _auth.signInWithEmailAndPassword(email: userEmail, password: uesrPassword).then((value) => debugPrint(value.toString()));
+      Get.offAll(()=>const LogInPage());
+    }catch(e){
+      Get.snackbar(
+        'error lllllllllllllllllllllllllllllllllllllllllogin and pass',
+        e.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+        );
+    }
+  }
   /*
   void signInWithEmailAndPassword()async{
     try{
@@ -53,5 +69,23 @@ class AuthController extends GetxController{
 
   }
   */
+  void createuserwithemailandpass()async{
+    try {
+      //UserCredential userCredentia =
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: "abdo1122@example.com",
+        password: "a123456",
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        debugPrint('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        debugPrint('The account already exists for that email.');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+
+  }
 
 }

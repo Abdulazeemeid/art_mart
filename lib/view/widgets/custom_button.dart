@@ -5,10 +5,12 @@ import '../../constance.dart';
 class CustomButton extends StatelessWidget {
   final Color buttonColor;
   final String text;
-  const CustomButton({
+  final VoidCallback onpress;
+  CustomButton({
     Key? key,
     this.buttonColor = myPrimaryColor,
     this.text='',
+    required this.onpress,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class CustomButton extends StatelessWidget {
         backgroundColor: MaterialStateProperty.all(buttonColor),
 
       ),
-      onPressed: () {},
+      onPressed: onpress,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: CustomText(
